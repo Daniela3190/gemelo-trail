@@ -375,12 +375,11 @@ input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer;}
   Fuentes: Trail/Sentiance SDK &nbsp;·&nbsp; SSN 2024/25 — Desarrollo de Siniestros Automotores &nbsp;·&nbsp; Infoauto jun 2026 &nbsp;·&nbsp; GCBA Siniestros Viales 2019-2025 &nbsp;·&nbsp; ANSV
 </footer>
 
-<script>
-const RAW = ${dataJson};
-</script>
+<script type="application/json" id="__data__">${dataJson}</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
+const RAW = JSON.parse(document.getElementById('__data__').textContent);
 // ─── Risk model ────────────────────────────────────────────────────────────────
 const PESOS = {zona:.30,legal:.20,nocturno:.15,vel:.10,aten:.10,seg:.10,antig:.05};
 const FEAT_LABELS = {zona:'Zonas de riesgo',legal:'Score legal',nocturno:'Manejo nocturno',
